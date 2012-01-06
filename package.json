@@ -1,0 +1,32 @@
+{ "name": "hstresstool"
+,"version": "0.1.0"
+,"main": "./stress"
+,"bin": { "stress": "./stress.js" }
+,"description": "A stress tool for Hubiquitus written for node.js in javascript"
+,"author": "Alexis Lesage"
+,"dependencies": {"node-expat": ">=1.2.0"
+		 ,"ltx": ">= 0.0.4"
+		 ,"tav": ">= 0.1.0"
+		 ,"jsdom": ">= 0.2.0"
+		 ,"underscore": ">= 1.1.5"
+		 ,"winston": ">= 0.5.9"
+		 }
+,"homepage": "http://hubiquitus.com"
+,"repository": {
+        "type": "git",
+        "url": "http://github.com/hubiquitus/hstresstool.git"
+ }
+,"maintainers": [{"name": "Alexis Lesage"
+		 ,"email":"alexis.lesage@gmail.com"
+		 ,"web": "http://alexislesage.com/"
+		 }]
+,"contributors": [{"name":"Alexis Lesage"
+		  ,"email":"alexis.lesage@gmail.com"
+		  ,"url":"http://alexislesage.com/"
+		  }
+]
+,"licenses": [{"type": "GPL"}]
+,"engines": {
+	    "node": ">=0.6.5"
+	    }
+}
