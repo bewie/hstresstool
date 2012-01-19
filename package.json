@@ -4,10 +4,10 @@
 ,"bin": { "stress": "./stress.js" }
 ,"description": "A stress tool for Hubiquitus written for node.js in javascript"
 ,"author": "Alexis Lesage"
-,"dependencies": {"node-expat": ">=1.2.0"
-		 ,"ltx": ">= 0.0.4"
+,"dependencies": {"node-expat": ">=1.4.1"
+		 ,"ltx": ">= 0.1.2"
 		 ,"tav": ">= 0.1.0"
-		 ,"jsdom": ">= 0.2.0"
+		 ,"jsdom": ">= 0.2.10"
 		 ,"underscore": ">= 1.1.5"
 		 ,"winston": ">= 0.5.9"
 		 }
