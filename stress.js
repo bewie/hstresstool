@@ -16,31 +16,33 @@
  *     You should have received a copy of the GNU General Public License
  *     along with Hubiquitus.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 var options = { };
 var winston = require('winston');
 var hSession  = require("./lib/hsession.js");
+var nbOpenedSessions = 0;
+var openedSessions = new Array();
 
+/*
+Each session is launched asynchronously
+ */
 function launch(opt){
-	
-	winston.handleExceptions();
-	winston.info('Launching clients !');
 
-	var session=null;
-	var clients = new Array();
-	
-	for (var i=0;i<opt.workers;i++)
-	{
+    var session = new hSession(opt);
+    session.connect();
+    openedSessions[nbOpenedSessions] = session;
+    nbOpenedSessions++;
+    winston.info('Opening session # '+ nbOpenedSessions);
 
-		session = new hSession(opt);
-		session.connect();
-		clients[i] = session;
-	}
+    if (opt.workers>nbOpenedSessions){
+        setTimeout(launch(opt), 5000);
+    }
 
 }
 
 function main() {
-	
+
+    winston.handleExceptions();
+
 	var opts = require('tav').set({
 		username: {
 			note: 'The username to login as'
@@ -59,9 +61,9 @@ function main() {
 			note: 'The route attribute to use (default: <empty>)', 
 			value: ''
 		}
-		,workers: {
-			note: 'The number of workers to launch (default: 2)', 
-			value: 1
+		,sessions: {
+			note: 'The number of sessions to launch (default: 2)',
+			value: 2
 		}
 	});
 
