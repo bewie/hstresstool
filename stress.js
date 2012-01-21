@@ -34,7 +34,7 @@ function launch(opt){
     winston.info('Opening session # '+ nbOpenedSessions);
 
     if (opt.workers>nbOpenedSessions){
-        setTimeout(launch(opt), 5000);
+        setTimeout(function() { launch(opt) } , 5000);
     }
 
 }
